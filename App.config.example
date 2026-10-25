@@ -1,3 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+
 <configuration>
+
+	<connectionStrings>
+		
+		<add name="RepairTrackDb"
+			 connectionString="Host=localhost;Port=5432;Database=repairtrack;Username=postgres;Password=ccbc-2026" />
+	</connectionStrings>
 </configuration>
