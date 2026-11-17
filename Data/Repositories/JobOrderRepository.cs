@@ -34,6 +34,17 @@ public class JobOrderRepository
             .Where(j => j.DeviceId == deviceId).OrderByDescending(j => j.DateReceived).ToList();
     }
 
+    public List<JobOrder> GetByCustomer(int customerId)
+    {
+        using var db = new RepairTrackContext();
+        return db.JobOrders
+            .Include(j => j.Device)
+            .Include(j => j.Payments)
+            .Where(j => j.Device.CustomerId == customerId)
+            .OrderByDescending(j => j.DateReceived)
+            .ToList();
+    }
+
     public List<JobOrder> GetRecentActive(int count)
     {
         using var db = new RepairTrackContext();

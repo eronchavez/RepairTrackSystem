@@ -1,4 +1,5 @@
 using RepairTrack.Data;
+using RepairTrack.Presentation;
 
 namespace RepairTrack;
 
@@ -15,6 +16,6 @@ static class Program
             return;
         }
 
-        Application.Run(new Form1());
+        Application.Run(new MainForm());
     }
 }

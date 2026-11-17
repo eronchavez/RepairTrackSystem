@@ -5,6 +5,13 @@ namespace RepairTrack.Data.Repositories;
 
 public class DeviceRepository
 {
+    public List<Device> GetAll()
+    {
+        using var db = new RepairTrackContext();
+        return db.Devices.Include(d => d.Customer)
+            .OrderBy(d => d.Customer.FullName).ThenBy(d => d.SerialNumber).ToList();
+    }
+
     public List<Device> GetByCustomer(int customerId)
     {
         using var db = new RepairTrackContext();
